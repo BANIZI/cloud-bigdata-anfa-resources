@@ -37,7 +37,16 @@ Cette séance introduit les fondamentaux du cloud computing à travers le projet
 
 ## Difficultés rencontrées
 
-Docker Desktop n'était pas démarré au moment du premier essai, ce qui a causé une erreur de connexion au daemon Docker. Le problème a été résolu en lançant Docker Desktop et en attendant qu'il soit complètement démarré.
+Docker Desktop n'était pas démarré au moment du premier essai, ce qui a causé 
+une erreur de connexion au daemon Docker. Le problème a été résolu en lançant 
+Docker Desktop et en attendant qu'il soit complètement démarré.
+
+## Note sur la sécurité
+
+Les credentials sont en clair dans le `docker-compose.yml` commité sur GitHub. 
+Cela est acceptable dans ce contexte pédagogique local. En production, on 
+utiliserait des variables d'environnement via un fichier `.env` ajouté au 
+`.gitignore`, ou un gestionnaire de secrets comme HashiCorp Vault.
 
 ---
 
@@ -118,6 +127,8 @@ s3 = boto3.client(
     aws_secret_access_key="anfa-app-secret-2026",
     region_name="us-east-1",
 )
+
+s3.upload_file("trajets.csv", "anfa-raw", "trajets.csv")
 ```
 
 **c.** La console web (port 9001) utilise un protocole d'authentification propre à l'interface d'administration. L'API S3 (port 9000) implémente le protocole AWS Signature V4 qui authentifie via des access key / secret key dédiées. Les identifiants root sont réservés à l'administration ; les opérations sur les objets doivent passer par des comptes de service — c'est une bonne pratique de sécurité fondamentale.
