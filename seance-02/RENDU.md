@@ -1,7 +1,7 @@
 # Rendu - Séance 2
 
-**Nom et prénom :** Ton nom complet
-**Identifiant GitHub :** ton-username
+**Nom et prénom :** BANIZI Gnimdou David
+**Identifiant GitHub :** BANIZI
 **Date de soumission :** 21/06/2026
 
 ## Résumé de la séance
