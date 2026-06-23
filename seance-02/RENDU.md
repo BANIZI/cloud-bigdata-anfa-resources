@@ -4,6 +4,8 @@
 **Identifiant GitHub :** BANIZI
 **Date de soumission :** 21/06/2026
 
+---
+
 ## Résumé de la séance
 Durant cette séance, j'ai écrit mon premier Dockerfile pour conteneuriser
 un script PySpark analysant le référentiel Anfa. J'ai construit l'image
@@ -265,4 +267,3 @@ volumes:
 ## Difficultés rencontrées
 - Conflit de nom de conteneur `anfa-minio` entre la séance 1 et la séance 2 : résolu avec `docker rm -f anfa-minio`.
 - Le bucket MinIO et la clé applicative ont dû être recréés via `mc` dans le terminal car le volume était neuf.
-- Le dossier `work/` de Jupyter n'était pas accessible via l'URL : le notebook a été créé directement dans `/` et s'est bien synchronisé avec `seance-02/notebooks/`.
