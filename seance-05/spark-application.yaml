@@ -1,0 +1,37 @@
+apiVersion: sparkoperator.k8s.io/v1beta2
+kind: SparkApplication
+metadata:
+  name: anfa-analyse-k8s
+  namespace: default
+spec:
+  type: Python
+  pythonVersion: "3"
+  mode: cluster
+  image: "apache/spark:3.5.8-python3"
+  imagePullPolicy: IfNotPresent
+  mainApplicationFile: "local:///opt/jobs/analyse_referentiel_k8s.py"
+  sparkVersion: "3.5.8"
+  restartPolicy:
+    type: Never
+  deps:
+    packages:
+      - org.apache.hadoop:hadoop-aws:3.3.4
+      - com.amazonaws:aws-java-sdk-bundle:1.12.262
+  driver:
+    cores: 1
+    memory: "1024m"
+    serviceAccount: spark-operator-spark
+    volumeMounts:
+      - name: job-script
+        mountPath: /opt/jobs
+  executor:
+    cores: 1
+    instances: 2
+    memory: "1024m"
+    volumeMounts:
+      - name: job-script
+        mountPath: /opt/jobs
+  volumes:
+    - name: job-script
+      configMap:
+        name: spark-job-anfa
