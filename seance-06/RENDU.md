@@ -1,8 +1,8 @@
 # Rendu : Séance 6
 
-**Nom et prénom :** Denis AKPAGNONITE
-**Identifiant GitHub :** <votre-username>
-**Date de soumission :** <JJ/MM/AAAA>
+**Nom et prénom :** BANIZI Gnimdou David 
+**Identifiant GitHub :** BANIZI
+**Date de soumission :** 03/07/2026
 
 ## Résumé de la séance
 
@@ -38,9 +38,21 @@ propagation d'échec ont été observés via un bug volontaire.
 
 ## Réflexion personnelle
 
-<3-5 lignes : qu'apporte Airflow par rapport à un cron simple ?
-Dans quel cas l'utiliser sur un vrai projet ?>
+Contrairement à cron, Airflow permet d'enchaîner plusieurs tâches avec des
+dépendances explicites, de relancer automatiquement une tâche en échec sans
+tout rejouer depuis le début, et de visualiser l'état du pipeline (succès,
+échec, durée) dans une interface graphique. Sur un vrai projet, Airflow
+devient indispensable dès qu'un pipeline dépasse une seule commande isolée :
+dès qu'il y a plusieurs étapes dépendantes (extraction, transformation,
+chargement, notification), qu'on a besoin de rejouer une période passée
+(backfill) après correction d'un bug, ou qu'on veut être alerté
+automatiquement en cas d'échec sans surveiller manuellement.
 
 ## Difficultés rencontrées
 
-<Aucune | Décrivez brièvement.>
+Au premier démarrage de la stack, le conteneur `anfa-postgres` (image
+`postgres:18-alpine`) restait bloqué en état "unhealthy" à cause d'un
+changement de format de stockage introduit dans PostgreSQL 18 (incompatible
+avec le point de montage `/var/lib/postgresql/data` utilisé dans le
+docker-compose.yml). La solution a été de revenir à une image plus stable,
+`postgres:16-alpine`, après quoi la stack a démarré normalement.
