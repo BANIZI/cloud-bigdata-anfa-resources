@@ -1,8 +1,8 @@
 # Rendu — Séance 8
 
-**Nom et prénom :** <Votre nom complet>
-**Identifiant GitHub :** <votre-username>
-**Date de soumission :** <JJ/MM/AAAA>
+**Nom et prénom :** BANIZI Gnimdou David
+**Identifiant GitHub :** BANIZI
+**Date de soumission :** 05/07/2026
 
 ## Résumé de la séance
 
