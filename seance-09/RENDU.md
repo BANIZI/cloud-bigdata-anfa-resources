@@ -1,8 +1,8 @@
 # Rendu — Séance 9
 
-**Nom et prénom :** <Votre nom complet>
-**Identifiant GitHub :** <votre-username>
-**Date de soumission :** <JJ/MM/AAAA>
+**Nom et prénom :** BANIZI Gnimdou David
+**Identifiant GitHub :** BANIZI
+**Date de soumission :** 07/07/2026
 
 ## Résumé de la séance
 
@@ -31,9 +31,7 @@ instrumenté, dashboard construit, alerte configurée et déclenchée sur panne 
 
 ## Réflexion personnelle
 
-<3-5 lignes : en quoi cette séance répond-elle directement à la situation-problème
-d'Awa dans le CM ? Qu'est-ce que la métrique de fraîcheur vous a permis de voir que
-les autres métriques (CPU, RAM, statut des conteneurs) ne montraient pas ?>
+Cette séance répond directement à la situation-problème d'Awa : rien n'avait techniquement planté (pods `Running`, DAG `success`), mais le pipeline avait traité un fichier vide, un succès technique masquant un échec métier. La métrique de fraîcheur simulée ici illustre le même principe : l'exportateur reste actif et sans erreur, mais cesse de produire un résultat utile — ce que ni `docker compose ps` ni les métriques CPU/RAM ne peuvent révéler. C'est exactement l'apport de l'observabilité par rapport au simple monitoring d'infrastructure : détecter en quelques secondes ce qu'Awa a mis 30 minutes à trouver, avant même qu'un utilisateur ne s'en aperçoive.
 
 ## Difficultés rencontrées
 
